@@ -15,15 +15,15 @@ db.sqlite3
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-frontend/frontend-react/node_modules/
-frontend/frontend-react/.pnp/
+frontend/website/node_modules/
+frontend/website/.pnp/
 .pnp.js
 
 # testing
-frontend/frontend-react/coverage/
+frontend/website/coverage/
 
 # production
-frontend/frontend-react/build/
+frontend/website/build/
 
 # misc
 .DS_Store

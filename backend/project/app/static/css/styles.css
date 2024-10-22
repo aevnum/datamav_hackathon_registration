@@ -1,0 +1,32 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 500px;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+p {
+    text-align: center;
+}

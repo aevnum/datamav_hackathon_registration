@@ -1,0 +1,72 @@
+body {
+    background-color: #001f3d;
+}
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.content {
+    max-width: 800px;
+    flex: 1;
+}
+.content h1 {
+    font-size: 4rem;
+    margin-bottom: 30px;
+    color: #f8dcbf;
+}
+.content p {
+    font-size: 1.5rem;
+    color: #045174;
+    margin-bottom: 50px;
+}
+.image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    margin-bottom: 30px;
+}
+.btn-custom {
+    background-color: #343a40;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+}
+.btn-custom:hover {
+    background-color: #007bff;
+    color: white;
+}
+.navbar {
+    position: fixed; /* Make the navbar fixed */
+    top: 0; /* Position it at the top */
+    width: 100%; /* Ensure it spans the full width */
+    z-index: 1000; /* Bring it to the front */
+    background-color: #045174;
+}
+
+.footer {
+    background-color: #343a40; /* Background color of the footer */
+    color: white; /* Text color */
+    padding: 20px 0; /* Adjust top and bottom padding for normal height */
+    position: relative; /* Make sure it stays at the bottom of the content */
+    bottom: 0; /* Align at the bottom */
+    width: 100%; /* Full width */
+    max-height: 100px; /* Adjust to desired height */
+    overflow: hidden; /* Prevent overflow if the content exceeds */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer p {
+    margin: 0; /* Remove default margin for normal size */
+    font-size: 1rem; /* Adjust font size as needed */
+}

@@ -46,47 +46,6 @@ p {
     align-items: center;
     text-align: center;
 }
-<<<<<<< HEAD
-
-
-/* for problem statements */
-.problem {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 20px;
-    padding: 15px;
-    width: 300px;
-    text-align: center;
-}
-
-.problem img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-.problem h3 {
-    margin: 15px 0;
-    font-size: 20px;
-    font-family: 'Garet Heavy', sans-serif;
-}
-
-.problem p {
-    color: black;
-    font-size: 14px;
-    line-height: 1.5;
-    font-family: 'Garet Heavy', sans-serif;
-}
-
-.problem img {
-    width: 300px; /* Fixed width */
-    height: 200px; /* Fixed height */
-    object-fit: cover; /* Ensures the image fills the space without distortion */
-    border-radius: 10px;
-}
-=======
 .content {
     max-width: 800px;
     flex: 1;
@@ -150,4 +109,41 @@ p {
     margin: 0; /* Remove default margin for normal size */
     font-size: 1rem; /* Adjust font size as needed */
 }
->>>>>>> 0b618ae04148f38c1613a0bcd4cc8a9e1735e050
+
+/* for problem statements */
+.problem {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 15px;
+    width: 300px;
+    text-align: center;
+}
+
+.problem img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.problem h3 {
+    margin: 15px 0;
+    font-size: 20px;
+    font-family: 'Garet Heavy', sans-serif;
+}
+
+.problem p {
+    color: black;
+    font-size: 14px;
+    line-height: 1.5;
+    font-family: 'Garet Heavy', sans-serif;
+}
+
+.problem img {
+    width: 300px; /* Fixed width */
+    height: 200px; /* Fixed height */
+    object-fit: cover; /* Ensures the image fills the space without distortion */
+    border-radius: 10px;
+}

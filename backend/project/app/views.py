@@ -12,6 +12,7 @@ def signup_view(request):
         form = SignupForm(request.POST)
         if form.is_valid():
             user = form.save()
+            print(request.POST)
             login(request, user)
             return redirect('home')  # Redirect to the home page after successful signup
     else:
@@ -21,4 +22,7 @@ def signup_view(request):
 class CustomLoginView(LoginView):
     form_class = LoginForm
     template_name = 'login.html'
+
+def problem_statement(request):
+    return render(request, 'problem_statements.html')
 

@@ -26,9 +26,26 @@
                     <a class="nav-link" href="#">Welcome, {{ user.username }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                    <a class="nav-link" href="{% url 'problem_statement' %}">Problem Statements</a>
                 </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" onclick="document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+                    <form id="logout-form" method="POST" action="{% url 'logout' %}" style="display: none;">
+                        {% csrf_token %}
+                    </form>
+                </li>
+
+                <!-- Explanation for logout:
+                    The <a> tag triggers the form submission through its onclick event.
+                    The form is hidden (style="display: none;") but contains a POST request that is triggered by JavaScript.
+                    The form also includes the {% csrf_token %} for CSRF protection. -->
+
                 {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'problem_statement' %}">Problem Statements</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
                 </li>

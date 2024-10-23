@@ -1,5 +1,6 @@
 body {
     background-color: #fbf5fe;
+    padding-top: 40px;
 }
 
 .formblock {
@@ -91,6 +92,24 @@ p {
     height: auto; /* Maintain aspect ratio */
 }
 
+.nav-item {
+    display: block; /* Make nav items block elements */
+    text-decoration: none; /* Remove underline */
+    margin: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+}
+
+.nav-item:hover {
+    background-color: #004386; /* Change background color on hover */
+    color: white; /* Ensure text color remains white */
+}
+
+.nav-item a {
+    color: #fa9939;
+}
+
 .footer {
     background-color: #343a40; /* Background color of the footer */
     color: white; /* Text color */
@@ -111,6 +130,24 @@ p {
 }
 
 /* for problem statements */
+.problem-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+}
+
+@media (max-width: 1200px) {
+    .problem-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .problem-container {
+        grid-template-columns: 1fr;
+    }
+}
+
 .problem {
     background-color: #fff;
     border: 1px solid #ddd;
@@ -118,7 +155,7 @@ p {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 20px;
     padding: 15px;
-    width: 300px;
+    width: auto;
     text-align: center;
 }
 
@@ -146,4 +183,10 @@ p {
     height: 200px; /* Fixed height */
     object-fit: cover; /* Ensures the image fills the space without distortion */
     border-radius: 10px;
+}
+
+@media (max-width: 1000px) {
+    body {
+        padding-top: 160px; /* Increase padding-top when viewport width is 768px or less */
+    }
 }

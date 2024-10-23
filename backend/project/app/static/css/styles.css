@@ -110,6 +110,16 @@ p {
     color: #fa9939;
 }
 
+.nav-greeting {
+    display: block; /* Make nav items block elements */
+    text-decoration: none; /* Remove underline */
+    margin: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    color: #fa9939;
+}
+
 .footer {
     background-color: #343a40; /* Background color of the footer */
     color: white; /* Text color */

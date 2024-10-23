@@ -12,6 +12,10 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/png">
+    <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/png">
+
     {% block extra_head %}{% endblock %}
 </head>
 <body>
@@ -22,8 +26,8 @@
         <div class="navbar-collapse">
             <ul class="navbar-nav ml-auto">
                 {% if user.is_authenticated %}
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Welcome, {{ user.username }}</a>
+                <li class="nav-greeting">
+                    <span class="nav-link">Welcome, {{ user.username }}</span>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'problem_statement' %}">Problem Statements</a>
@@ -43,9 +47,6 @@
                     The form also includes the {% csrf_token %} for CSRF protection. -->
 
                 {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'problem_statement' %}">Problem Statements</a>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
                 </li>

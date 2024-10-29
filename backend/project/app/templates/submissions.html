@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Data Mavericks{% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submit Your Solution</title>
+</head>
+<body>
+    <h1>Submit Your Solution</h1>
+
+    {% if alert %}
+        <div class="alert alert-{{ alert.type }}">
+            {{ alert.message }}
+        </div>
+    {% endif %}
+
+    <form method="POST" enctype="multipart/form-data" action="{% url 'submit_solution' %}">
+        {% csrf_token %}
+        
+        <label for="team">Team:</label>
+        <select name="team" id="team" required>
+            {% for team in teams %}
+                <option value="{{ team.id }}">{{ team.name }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="problem">Problem:</label>
+        <select name="problem" id="problem" required>
+            {% for problem in problems %}
+                <option value="{{ problem.id }}">{{ problem.name }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="file">Upload File:</label>
+        <input type="file" name="file" id="file" required>
+        
+        <button type="submit">Submit</button>
+    </form>
+    {% endblock %}
+</body>
+</html>

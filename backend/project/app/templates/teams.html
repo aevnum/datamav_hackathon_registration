@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Data Mavericks{% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Team Management</title>
+    <style>
+        /* Simple styles for alert messages */
+        .alert {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .alert-error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .alert-info {
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+    </style>
+
+    
+</head>
+<body>
+
+    {% if alert %}
+        <div class="alert alert-{{ alert.type }}">
+            {{ alert.message }}
+        </div>
+    {% endif %}
+    <h1>Team Management</h1>
+
+    <!-- Create a New Team -->
+    <h2>Create a Team</h2>
+    <form method="POST" action="{% url 'create_team' %}">
+        {% csrf_token %}
+        <label for="team_name">Team Name:</label>
+        <input type="text" name="team_name" id="team_name" required>
+        <button type="submit">Create Team</button>
+    </form>
+
+    <!-- Join an Existing Team -->
+    <h2>Join a Team</h2>
+    <form method="POST" action="{% url 'join_team' %}">
+        {% csrf_token %}
+        <label for="team_id">Enter Team ID:</label>
+        <input type="text" name="team_id" id="team_id" required>
+        <button type="submit">Join Team</button>
+    </form>
+
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+
+    {% endblock %}
+</body>
+</html>

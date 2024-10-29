@@ -35,15 +35,18 @@ class User(AbstractUser):
     def __str__(self):
         return self.username
     
-class Team(models.Model):
-    name = models.CharField(max_length=255)
-    members = models.ManyToManyField(User)
+
+class Teams(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+    team_id = models.CharField(max_length=10, unique=True)
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='created_teams')
+    members = models.ManyToManyField(User, related_name='teams')
 
     def __str__(self):
         return self.name
 
 class Submission(models.Model):
-    team = models.ForeignKey(Team, on_delete=models.CASCADE)
+    team = models.ForeignKey(Teams, on_delete=models.CASCADE)
     problem = models.ForeignKey(Problem, on_delete=models.CASCADE)
     file = models.FileField(upload_to='submissions/')
     submission_time = models.DateTimeField(auto_now_add=True)

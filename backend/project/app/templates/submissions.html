@@ -6,39 +6,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Submit Your Solution</title>
 </head>
 <body>
-    <h1>Submit Your Solution</h1>
+    <div class="formblock mt-5">
+        <div class="content"><h1>Submit Your Solution</h1></div>
+    
 
     {% if alert %}
         <div class="alert alert-{{ alert.type }}">
             {{ alert.message }}
         </div>
     {% endif %}
-
-    <form method="POST" enctype="multipart/form-data" action="{% url 'submit_solution' %}">
-        {% csrf_token %}
-        
-        <label for="team">Team:</label>
-        <select name="team" id="team" required>
-            {% for team in teams %}
-                <option value="{{ team.id }}">{{ team.name }}</option>
-            {% endfor %}
-        </select>
-        
-        <label for="problem">Problem:</label>
-        <select name="problem" id="problem" required>
-            {% for problem in problems %}
-                <option value="{{ problem.id }}">{{ problem.name }}</option>
-            {% endfor %}
-        </select>
-        
-        <label for="file">Upload File:</label>
-        <input type="file" name="file" id="file" required>
-        
-        <button type="submit">Submit</button>
-    </form>
+    
+        <form method="POST" enctype="multipart/form-data" action="{% url 'submit_solution' %}" >
+            {% csrf_token %}
+            
+            <label for="team" class="form-content">Team:</label>
+            <select name="team" id="team" required>
+                {% for team in teams %}
+                    <option value="{{ team.id }}">{{ team.name }}</option>
+                {% endfor %}
+            </select>
+            
+            <label for="problem" class="form-content">Problem:</label>
+            <select name="problem" id="problem" required>
+                {% for problem in problems %}
+                    <option value="{{ problem.id }}">{{ problem.name }}</option>
+                {% endfor %}
+            </select>
+            
+            <label for="file" >Upload File:</label>
+            <input type="file" name="file" id="file" required>
+            
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    
     {% endblock %}
 </body>
 </html>

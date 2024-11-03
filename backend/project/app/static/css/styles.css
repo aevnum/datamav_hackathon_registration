@@ -1,16 +1,23 @@
 body {
     background-color: #fbf5fe;
     padding-top: 40px;
+    display: flex;
+    /* make everything be on top of each other and not side by side */
+    flex-direction: column;
+    /* center everything */
+    align-items: center;
+    justify-content: center;
 }
 
 .formblock {
     max-width: 500px;
     width: 50vw;
-    background: white;
+    background:#fbf5fe;
     padding: 30px;
     margin: 50px;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(50px);
 }
 
 h2 {
@@ -60,6 +67,7 @@ p {
     font-size: 1.5rem;
     color: #045174;
     margin-bottom: 50px;
+    
 }
 .image {
     width: 100%;
@@ -199,4 +207,79 @@ p {
     body {
         padding-top: 160px; /* Increase padding-top when viewport width is 768px or less */
     }
+}
+
+.alert {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+.alert-info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+
+/* Styles for the forms */
+form {
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+form label {
+    font-size: 13rem;
+  
+    /* color: #045174; */
+    margin-bottom: 50px;
+}
+form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.join-btn, .create-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+.create-btn, .join-btn:hover {
+    background-color: #0056b3;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.teams {
+    background-color: #fa9939;
+    color: tomato;
+}
+
+.submissions label{
+    background-color: #007bff;
+    color: #0056b3;
+    
+}
+
+.form-content{
+    color:#fa9939;
+    font-size: 200px;
 }

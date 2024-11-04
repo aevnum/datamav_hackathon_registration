@@ -6,13 +6,19 @@
 <!-- Content Section -->
 <div class="container">
     <div class="row">
-        <div class="content col-md-6">
-            <h1>Welcome to the Data Mavericks</h1>
-            <p>Join the most exciting coding event and collaborate with teams to solve real-world problems.</p>
+        <div class="content">
             {% if user.is_authenticated %}
-            <a href="{% url 'problem_statement' %}" class="btn btn-custom">Problem Statements</a>
+                <h1>Welcome, {{ user.username }}</h1>
+                <p>Get started by joining a team, and then checking out our problem</p>
+                {% if user.teams.all %}
+                    <a href="{% url 'problem_statement' %}" class="btn btn-custom">Problem Statements</a>
+                {% else %}
+                    <a href="{% url 'team_management' %}" class="btn btn-custom">Create or Join a Team</a>
+                {% endif %}
             {% else %}
-            <a href="{% url 'login' %}" class="btn btn-custom">Login to Get Started</a>
+                <h1>Welcome to the Data Mavericks</h1>
+                <p>Join the most exciting coding event and collaborate with teams to solve real-world problems.</p>
+                <a href="{% url 'login' %}" class="btn btn-custom">Login to Get Started</a>
             {% endif %}
         </div>
         <div class="col-md-6">

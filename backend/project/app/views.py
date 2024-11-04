@@ -15,7 +15,6 @@ def signup_view(request):
         form = SignupForm(request.POST)
         if form.is_valid():
             user = form.save()
-            print(request.POST)
             login(request, user)
             return redirect('home')  # Redirect to the home page after successful signup
     else:
@@ -51,13 +50,8 @@ def join_team(request):
         team_id = request.POST.get('team_id')
         try:
             team = Teams.objects.get(team_id=team_id)
-            if request.user in team.members.all():
-                alert = {"type": "info", "message": "You are already a member of this team."}
-            else:
-                # Assuming this is a placeholder for confirming with existing members
-                # Add a process here if you want actual confirmation from team members
-                team.members.add(request.user)
-                alert = {"type": "success", "message": f"Successfully joined team '{team.name}'."}
+            team.members.add(request.user)
+            alert = {"type": "success", "message": f"Successfully joined team '{team.name}'."}
         except Teams.DoesNotExist:
             alert = {"type": "error", "message": "Invalid Team ID. Please try again."}
         return render(request, 'teams.html', {"alert": alert})
@@ -72,16 +66,15 @@ def leave_team(request, team_id):
     if request.method == "POST":
         # Get the team object
         team = get_object_or_404(Teams, team_id=team_id)
+        alert = None
         
         # Check if the user is a member of the team
         if request.user in team.members.all():
             # Remove the user from the team
             team.members.remove(request.user)
-            messages.success(request, 'You have left the team successfully.')
-        else:
-            messages.warning(request, 'You are not a member of this team.')
+            alert = {"type": "error", "message": f"You have left the team {team.name}."}
         
-        return render(request, 'teams.html')  # Redirect to the teams page
+        return render(request, 'teams.html', {"alert": alert})  # Redirect to the teams page
     return render(request, 'teams.html') # Fallback redirect if not POST
 
 

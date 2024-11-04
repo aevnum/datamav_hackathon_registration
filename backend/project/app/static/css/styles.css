@@ -111,8 +111,7 @@ p {
 }
 
 .nav-item:hover {
-    background-color: #004386; /* Change background color on hover */
-    color: white; /* Ensure text color remains white */
+    background-color: #004386;
 }
 
 .nav-item a {
@@ -120,12 +119,9 @@ p {
 }
 
 .nav-greeting {
-    display: block; /* Make nav items block elements */
-    text-decoration: none; /* Remove underline */
     margin: 0;
     padding-left: 10px;
     padding-right: 10px;
-    border-radius: 5px;
     color: #fa9939;
 }
 
@@ -206,7 +202,7 @@ p {
 
 @media (max-width: 1000px) {
     body {
-        padding-top: 160px; /* Increase padding-top when viewport width is 768px or less */
+        padding-top: 230px; 
     }
 }
 

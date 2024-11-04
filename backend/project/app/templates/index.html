@@ -9,9 +9,9 @@
         <div class="content">
             {% if user.is_authenticated %}
                 <h1>Welcome, {{ user.username }}</h1>
-                <p>Get started by joining a team, and then checking out our problem</p>
+                <p>Get started by joining a team, and then checking out our problem statements</p>
                 {% if user.teams.all %}
-                    <a href="{% url 'problem_statement' %}" class="btn btn-custom">Problem Statements</a>
+                    <a href="{% url 'problem_statement' %}" class="btn btn-custom">Check out some problem statements</a>
                 {% else %}
                     <a href="{% url 'team_management' %}" class="btn btn-custom">Create or Join a Team</a>
                 {% endif %}

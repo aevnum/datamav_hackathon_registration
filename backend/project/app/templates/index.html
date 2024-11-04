@@ -10,7 +10,7 @@
             <h1>Welcome to the Data Mavericks</h1>
             <p>Join the most exciting coding event and collaborate with teams to solve real-world problems.</p>
             {% if user.is_authenticated %}
-            <a href="{% url 'problem_statement' %}" class="btn btn-custom">dukh dard peeda</a>
+            <a href="{% url 'problem_statement' %}" class="btn btn-custom">Problem Statements</a>
             {% else %}
             <a href="{% url 'login' %}" class="btn btn-custom">Login to Get Started</a>
             {% endif %}

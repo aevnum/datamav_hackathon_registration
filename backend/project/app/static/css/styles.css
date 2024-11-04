@@ -238,10 +238,8 @@ form {
     background-color: #f9f9f9;
 }
 form label {
-    font-size: 13rem;
-  
-    /* color: #045174; */
-    margin-bottom: 50px;
+    font-size: auto;
+    margin-bottom: 15px;
 }
 form input[type="text"] {
     width: 100%;

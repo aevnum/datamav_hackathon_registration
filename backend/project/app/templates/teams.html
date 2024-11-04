@@ -1,11 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}Data Mavericks{% endblock %}
-{% block content %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+{% block content %} 
     
-<body>
+
     <div class="formblock mt-5">
     {% if alert %}
         <div class="alert alert-{{ alert.type }}">
@@ -42,7 +40,11 @@
         <p>{{ message }}</p>
     {% endif %}
     </div>
+
+    
+  
+  
 {% endblock %}
 
-</body>
+
     

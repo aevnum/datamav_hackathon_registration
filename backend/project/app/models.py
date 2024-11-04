@@ -7,7 +7,7 @@ class Problem(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField()
     category = models.CharField(max_length=100)
-
+    img = models.TextField(default='https://hotpot.ai/images/site/ai/restorer/teaser_400.jpg')
     def __str__(self):
         return self.name
     
@@ -41,7 +41,7 @@ class Teams(models.Model):
     team_id = models.CharField(max_length=10, unique=True)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='created_teams')
     members = models.ManyToManyField(User, related_name='teams')
-
+    
     def __str__(self):
         return self.name
 

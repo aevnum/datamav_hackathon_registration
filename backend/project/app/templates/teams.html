@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}Data Mavericks{% endblock %}
 {% block content %} 
-    
+<!-- 
 
     <div class="formblock mt-5">
     {% if alert %}
@@ -12,7 +12,6 @@
     {% endif %}
     <div class="content"><h2>Team Management</h2></div> 
    
-    <!-- Create a New Team -->
     <h2>Create a Team</h2>
     <div >
         <form method="POST" action="{% url 'create_team' %}" >
@@ -24,7 +23,6 @@
     </div>
    
     <h3 style="text-align: center; margin-top: 10px;" >OR</h3>
-    <!-- Join an Existing Team -->
     <h2>Join a Team</h2>
     <div >
         <form method="POST" action="{% url 'join_team' %}" >
@@ -44,7 +42,60 @@
     
   
   
-{% endblock %}
+
+
+
+ -->
 
 
     
+
+<div class="formblock mt-5">
+    {% if alert %}
+        <div class="alert alert-{{ alert.type }}">
+            {{ alert.message }}
+        </div>
+    {% endif %}
+    <div class="content"><h2>Team Management</h2></div> 
+    
+    {% if user.teams.all %}
+        <h3>Your Current Team</h3>
+        {% for team in user.teams.all %}
+            <p>Team Name: {{ team.name }} (ID: {{ team.team_id }})</p>
+            <form method="POST" action="{% url 'leave_team' team.team_id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Leave Team</button>
+            </form>
+        {% endfor %}
+    {% else %}
+        
+   
+        <!-- User is not in a team -->
+        <h2>Create a Team</h2>
+        <div>
+            <form method="POST" action="{% url 'create_team' %}" >
+                {% csrf_token %}
+                <label for="team_name" class="form-content">Team Name:</label>
+                <input type="text" name="team_name" id="team_name" required>
+                <button type="submit" class="btn btn-primary">Create Team</button>
+            </form>
+        </div>
+        
+        <h3 style="text-align: center; margin-top: 10px;">OR</h3>
+        <h2>Join a Team</h2>
+        <div>
+            <form method="POST" action="{% url 'join_team' %}" >
+                {% csrf_token %}
+                <label for="team_id" class="form-content">Enter Team ID:</label>
+                <input type="text" name="team_id" id="team_id" required>
+                <button class="btn btn-primary">Join Team</button>
+            </form>
+        </div>
+    {% endif %}
+
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+</div>
+
+{% endblock %}

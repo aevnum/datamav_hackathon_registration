@@ -18,11 +18,12 @@
         {% csrf_token %}
         
         <label for="team" >Team:</label>
-        <select name="team" id="team" required>
-            {% for team in teams %}
-                <option value="{{ team.id }}">{{ team.name }}</option>
-            {% endfor %}
-        </select>
+        {% if user.teams.all %}
+            <p id="team">{{ user.teams.first.name }}</p>  <!-- Display the team name directly -->
+            <input type="hidden" name="team" value="{{ user.teams.first.id }}">
+        {% else %}
+            <p>You are not part of any team. Please create or join a team to submit a solution.</p>
+        {% endif %}
         
         <label for="problem">Problem:</label>
         <select name="problem" id="problem" required>

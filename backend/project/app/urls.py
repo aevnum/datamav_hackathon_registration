@@ -1,6 +1,6 @@
 from django.urls import path
 from django.contrib.auth.views import LogoutView
-from .views import signup_view, CustomLoginView, home, problem_statement, team_management, create_team, join_team, submit_solution
+from .views import signup_view, CustomLoginView, home, problem_statement, team_management, create_team, join_team, submit_solution, leave_team
 
 urlpatterns = [
     path('signup/', signup_view, name='signup'),
@@ -12,4 +12,5 @@ urlpatterns = [
     path('teams/create/', create_team, name='create_team'),    # Create team
     path('teams/join/', join_team, name='join_team'), 
     path('submit/', submit_solution, name='submit_solution'),
+    path('leave-team/<str:team_id>/', leave_team, name='leave_team'),
 ]
